@@ -3,23 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_drivers">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.karf1.ui.home.HomeFragment"
+        android:id="@+id/navigation_drivers"
+        android:name="com.example.karf1.ui.driver.DriverStandingsFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_driver_standing" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.karf1.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_constructors"
+        android:name="com.example.karf1.ui.constructors.ConstructorsStandingFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/constructors_fragment" >
+        <action
+            android:id="@+id/action_navigation_constructors_to_constructorsStandingDetailFragment"
+            app:destination="@id/constructorsStandingDetailFragment" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.karf1.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_schedule"
+        android:name="com.example.karf1.ui.schedule.RaceScheduleFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/race_schedule_fragment" />
+    <fragment
+        android:id="@+id/constructorsStandingDetailFragment"
+        android:name="com.example.karf1.ui.constructors.ConstructorsStandingDetailFragment"
+        android:label="ConstructorsStandingDetailFragment" >
+        <argument
+            android:name="selectedConstructor"
+            app:argType="com.example.karf1.models.ConstructorStandings"/>
+    </fragment>
 </navigation>

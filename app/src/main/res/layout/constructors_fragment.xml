@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragments.ConstructorsStandingFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/constructorRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/constructor_list_item"
+            android:clipToPadding="false"
+            app:spanCount="2"
+            tools:itemCount="10"/>
+
+
+    </RelativeLayout>
+</layout>
