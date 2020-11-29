@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.karf1.databinding.RaceScheduleListItemBinding
 import com.example.karf1.models.Races
 
-class RaceScheduleAdapter :ListAdapter<Races, RaceScheduleAdapter.RaceScheduleViewHolder>(
+class RaceScheduleAdapter(private val onClickListener: OnClickListener) :ListAdapter<Races, RaceScheduleAdapter.RaceScheduleViewHolder>(
     raceDiffUtil
 ){
 
     class RaceScheduleViewHolder(private var binding: RaceScheduleListItemBinding):RecyclerView.ViewHolder(binding.root){
         fun bind(item:Races){
             binding.race = item
+            binding
             binding.executePendingBindings()
         }
     }
@@ -37,6 +38,13 @@ class RaceScheduleAdapter :ListAdapter<Races, RaceScheduleAdapter.RaceScheduleVi
 
     override fun onBindViewHolder(holder: RaceScheduleViewHolder, position: Int) {
         var race = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(race)
+        }
         holder.bind(race)
+    }
+
+    class OnClickListener(val clickListener: (races:Races) -> Unit){
+        fun onClick(races: Races) = clickListener(races)
     }
 }

@@ -3,7 +3,7 @@ package com.example.karf1.models
 import com.google.gson.annotations.SerializedName
 
 
-data class BaseResponse (
+data class CircuitResultsTime (
 
-	@SerializedName("MRData") val mRData : MRData
+	@SerializedName("time") val time : String
 )

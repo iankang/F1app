@@ -25,13 +25,34 @@
         android:id="@+id/navigation_schedule"
         android:name="com.example.karf1.ui.schedule.RaceScheduleFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/race_schedule_fragment" />
+        tools:layout="@layout/race_schedule_fragment" >
+        <action
+            android:id="@+id/action_navigation_schedule_to_raceScheduleDetailFragment"
+            app:destination="@id/raceScheduleDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/constructorsStandingDetailFragment"
         android:name="com.example.karf1.ui.constructors.ConstructorsStandingDetailFragment"
-        android:label="ConstructorsStandingDetailFragment" >
+        android:label="Constructors Standing"
+        tools:layout="@layout/constructors_standing_detail_fragment"
+        >
         <argument
             android:name="selectedConstructor"
             app:argType="com.example.karf1.models.ConstructorStandings"/>
+        <action
+            android:id="@+id/action_constructorsStandingDetailFragment_to_navigation_constructors"
+            app:popUpTo="@id/navigation_constructors" />
+    </fragment>
+    <fragment
+        android:id="@+id/raceScheduleDetailFragment"
+        android:name="com.example.karf1.ui.schedule.RaceScheduleDetailFragment"
+        android:label="Race Schedule Results"
+        tools:layout="@layout/race_schedule_detail_fragment">
+        <argument
+            android:name="selectedCircuit"
+            app:argType="com.example.karf1.models.Races"/>
+        <action
+            android:id="@+id/action_raceScheduleDetailFragment_to_navigation_schedule"
+            app:popUpTo="@id/navigation_schedule" />
     </fragment>
 </navigation>

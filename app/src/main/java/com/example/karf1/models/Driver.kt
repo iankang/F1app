@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class Driver (
 
 	@SerializedName("driverId") val driverId : String,
-	@SerializedName("permanentNumber") val permanentNumber : Int,
+	@SerializedName("permanentNumber") val permanentNumber : String,
 	@SerializedName("code") val code : String,
 	@SerializedName("url") val url : String,
 	@SerializedName("givenName") val givenName : String,

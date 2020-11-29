@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-data class MRData (
+data class MRDataCircuitResults (
 
 	@SerializedName("xmlns") val xmlns : String,
 	@SerializedName("series") val series : String,
@@ -13,5 +13,5 @@ data class MRData (
 	@SerializedName("limit") val limit : Int,
 	@SerializedName("offset") val offset : Int,
 	@SerializedName("total") val total : Int,
-	@SerializedName("StandingsTable") val standingsTable : StandingsTable
+	@SerializedName("RaceTable") val raceTable: RaceTableCircuitResults
 ):Serializable

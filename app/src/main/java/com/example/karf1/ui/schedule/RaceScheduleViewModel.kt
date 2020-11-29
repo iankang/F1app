@@ -23,6 +23,10 @@ class RaceScheduleViewModel : ViewModel() {
     val races:LiveData<List<Races>>
         get() = _races
 
+    private val _navigateToRaceScheduleDetail = MutableLiveData<Races>()
+    val navigateToRaceScheduleDetail :LiveData<Races>
+        get() = _navigateToRaceScheduleDetail
+
     private suspend fun gettingSchedule(): Response<RaceScheduleBase> {
         return apiClient.getStandingsService().getCurrentRaceSchedule()
     }
@@ -34,5 +38,13 @@ class RaceScheduleViewModel : ViewModel() {
                 _races.postValue(schedule?.body()?.mRData?.raceTable?.races)
             }
         }
+    }
+
+    fun displayRaceScheduleDetail(races: Races){
+        _navigateToRaceScheduleDetail.value = races
+    }
+
+    fun displayRaceScheduleDetailCompleted(){
+        _navigateToRaceScheduleDetail.value = null
     }
 }

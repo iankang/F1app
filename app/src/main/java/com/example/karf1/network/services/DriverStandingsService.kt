@@ -4,8 +4,10 @@ import com.example.karf1.models.BaseResponse
 import com.example.karf1.models.BaseResponseConstructor
 import com.example.cartumia.models.RaceScheduleBase
 import com.example.cartumia.network.Endpoints
+import com.example.karf1.models.BaseResponseCircuitResults
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 
 interface DriverStandingsService {
@@ -18,4 +20,7 @@ interface DriverStandingsService {
 
     @GET(Endpoints.CURRENT_SCHEDULE)
     suspend fun getCurrentRaceSchedule():Response<RaceScheduleBase>
+
+    @GET(Endpoints.CURRENT_CIRCUIT_RESULTS)
+    suspend fun getSpecificCircuitResults(@Path("circuitId") circuitId:String):Response<BaseResponseCircuitResults>
 }
