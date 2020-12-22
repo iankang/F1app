@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="racesDriverResult"
+            type="com.example.karf1.models.RacesDriverResults" />
+        <variable
+            name="driverInfo"
+            type="com.example.karf1.models.Driver" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+<!--        <TextView-->
+<!--            android:id="@+id/round"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="24sp"-->
+<!--            android:layout_margin="2dp"-->
+<!--            tools:text="#1"-->
+<!--            android:text="@{String.valueOf(driverResult.round)}"/>-->
+        <TextView
+            android:id="@+id/driverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="2dp"
+            tools:text="Max Verstappen"
+            android:text="@{ driverInfo.givenName +' ' + driverInfo.familyName}"/>
+<!--        <TextView-->
+<!--            android:id="@+id/circuitName"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="24sp"-->
+<!--            android:layout_margin="2dp"-->
+<!--            tools:text="red bull ring"-->
+<!--            android:text="@{driverResult.}"/>-->
+        <TextView
+            android:id="@+id/gridNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="2dp"
+            tools:text="20"
+            android:text="@{racesDriverResult.results.get(0).grid}"/>
+        <TextView
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="2dp"
+            tools:text="20"
+            android:text="@{racesDriverResult.results.get(0).position}"/>
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_margin="2dp"
+            tools:text="20"
+            android:text="@{racesDriverResult.results.get(0).status}"/>
+
+
+    </LinearLayout>
+</layout>

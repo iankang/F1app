@@ -1,6 +1,7 @@
 package com.example.karf1.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Driver (
@@ -13,4 +14,4 @@ data class Driver (
 	@SerializedName("familyName") val familyName : String,
 	@SerializedName("dateOfBirth") val dateOfBirth : String,
 	@SerializedName("nationality") val nationality : String
-)
+):Serializable

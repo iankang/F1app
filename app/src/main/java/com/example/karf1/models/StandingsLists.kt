@@ -1,5 +1,6 @@
 package com.example.cartumia.models
 
+import com.example.karf1.models.DriverStandings
 import com.google.gson.annotations.SerializedName
 
 

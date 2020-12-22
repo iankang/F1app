@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.karf1.models.BaseResponse
-import com.example.cartumia.models.DriverStandings
+import com.example.karf1.models.DriverStandings
 import com.example.cartumia.network.ApiClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +23,10 @@ class DriverStandingsViewModel : ViewModel() {
     val drivers:LiveData<List<DriverStandings>>
         get() = _drivers
 
+    private val _navigateToSpecificDriverResults = MutableLiveData<DriverStandings>()
+    val navigateToSpecificDriverDetails:LiveData<DriverStandings>
+        get() = _navigateToSpecificDriverResults
+
     private suspend fun gettingDrivers(): Response<BaseResponse> {
         return apiClient.getStandingsService().getCurrentDriverStandings()
     }
@@ -38,5 +42,13 @@ class DriverStandingsViewModel : ViewModel() {
             }
 
         }
+    }
+
+    fun displayDriverResults(driverStandings: DriverStandings){
+        _navigateToSpecificDriverResults.value = driverStandings
+    }
+
+    fun displayDriverResultsCompleted(){
+        _navigateToSpecificDriverResults.value = null
     }
 }

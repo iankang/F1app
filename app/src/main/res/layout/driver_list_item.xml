@@ -7,7 +7,7 @@
     <data>
         <variable
             name="driver"
-            type="com.example.cartumia.models.DriverStandings" />
+            type="com.example.karf1.models.DriverStandings" />
 
     </data>
 

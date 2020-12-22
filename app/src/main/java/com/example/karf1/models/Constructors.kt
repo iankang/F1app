@@ -1,6 +1,7 @@
 package com.example.karf1.models
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class Constructors (
@@ -9,4 +10,4 @@ data class Constructors (
 	@SerializedName("url") val url : String,
 	@SerializedName("name") val name : String,
 	@SerializedName("nationality") val nationality : String
-)
+):Serializable

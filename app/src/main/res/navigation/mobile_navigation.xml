@@ -9,7 +9,11 @@
         android:id="@+id/navigation_drivers"
         android:name="com.example.karf1.ui.driver.DriverStandingsFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_driver_standing" />
+        tools:layout="@layout/fragment_driver_standing" >
+        <action
+            android:id="@+id/action_navigation_drivers_to_driverDetailsFragment"
+            app:destination="@id/driverDetailsFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_constructors"
@@ -54,5 +58,17 @@
         <action
             android:id="@+id/action_raceScheduleDetailFragment_to_navigation_schedule"
             app:popUpTo="@id/navigation_schedule" />
+    </fragment>
+    <fragment
+        android:id="@+id/driverDetailsFragment"
+        android:name="com.example.karf1.ui.driver.DriverDetailsFragment"
+        android:label="DriverDetailsFragment"
+        tools:layout="@layout/driver_details_fragment">
+        <argument
+            android:name="driverDetails"
+            app:argType="com.example.karf1.models.DriverStandings"/>
+        <action
+            android:id="@+id/action_driverDetailsFragment_to_navigation_drivers"
+            app:popUpTo="@id/navigation_drivers" />
     </fragment>
 </navigation>

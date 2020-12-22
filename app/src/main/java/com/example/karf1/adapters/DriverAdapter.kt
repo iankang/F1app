@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cartumia.models.DriverStandings
+import com.example.karf1.models.DriverStandings
 import com.example.karf1.databinding.DriverListItemBinding
 
-class DriverAdapter: ListAdapter<DriverStandings, DriverAdapter.DriverViewHolder>(
+class DriverAdapter(private val onClickListener: OnClickListener): ListAdapter<DriverStandings, DriverAdapter.DriverViewHolder>(
     diffCallBack
 ) {
 
     class DriverViewHolder(private var binding: DriverListItemBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item:DriverStandings){
+        fun bind(item: DriverStandings){
             binding.driver = item
             binding.executePendingBindings()
         }
@@ -41,6 +41,13 @@ class DriverAdapter: ListAdapter<DriverStandings, DriverAdapter.DriverViewHolder
 
     override fun onBindViewHolder(holder: DriverViewHolder, position: Int) {
         val driverStanding = getItem(position)
+        holder.itemView.setOnClickListener {
+            onClickListener.onClick(driverStanding)
+        }
         holder.bind(driverStanding)
+    }
+
+    class OnClickListener(val clickListener:(driverStandings: DriverStandings) -> Unit){
+        fun onClick(driverStandings: DriverStandings) = clickListener(driverStandings)
     }
 }

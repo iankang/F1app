@@ -1,8 +1,9 @@
-package com.example.cartumia.models
+package com.example.karf1.models
 
 import com.example.karf1.models.Constructors
 import com.example.karf1.models.Driver
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class DriverStandings (
@@ -13,4 +14,4 @@ data class DriverStandings (
 	@SerializedName("wins") val wins : Int,
 	@SerializedName("Driver") val driver : Driver,
 	@SerializedName("Constructors") val constructors : List<Constructors>
-)
+):Serializable
